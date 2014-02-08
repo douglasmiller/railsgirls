@@ -15,9 +15,9 @@
   <tbody>
     <% @ideas.each do |idea| %>
       <tr class="ideas-idea">
-        <td><%= link_to idea.name, idea %></td>
-        <td><%= idea.description %></td>
-        <td><%= image_tag(idea.picture_url, :width => 600) if idea.picture.present? %></td>
+        <td class='ideas-idea-name'><%= link_to idea.name, idea %></td>
+        <td><%= truncate(idea.description, length: 100) %></td>
+        <td><%= image_tag(idea.picture_url, width: 600) if idea.picture.present? %></td>
         <td class='ideas-idea-controls text-right'>
           <%= link_to 'Show', idea, class: "btn btn-default btn-xs" %>
           <%= link_to 'Edit', edit_idea_path(idea), class: "btn btn-default btn-xs" %>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Idea', new_idea_path, { class: "btn btn-primary" } %>
+<%= link_to 'New Idea', new_idea_path, { class: "btn btn-default" } %>

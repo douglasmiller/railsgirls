@@ -1,5 +1,5 @@
 Railsgirls::Application.routes.draw do
-  get "pages/info"
+  get "pages/info", :as => :info
   root :to => redirect('/ideas')
 
   resources :ideas
